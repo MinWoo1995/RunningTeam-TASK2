@@ -43,14 +43,15 @@ public class Garen extends Champion {
     public void useW(Champion target) {
         System.out.println("------------useW------------");
         System.out.println(getName() + "이(가) 'E' 스킬을 사용합니다.");
-        int hp = target.getHP()-getattackDamage();
-        target.setHP(hp);
+        int hp = getattackDamage();
         System.out.println(target.getName()+"가"+getName()+"에게 공격 당하였습니다. 현재"+target.getName()+"의 체력은"+target.getHP()+"입니다.");
         //출력문을 데미지 계산 위에 위치시켜서 감소된 HP 확인이 안되었다.[문제]
+        target.takeDamage(hp);
         int mp = getMP();
         mp -= 20;
         setMP(mp);
         System.out.println(getName()+"의 남은 마력 : "+getMP());
+
         System.out.println("----------------------------");
     }
     public void levelUp(int ex) {
@@ -72,9 +73,10 @@ public class Garen extends Champion {
             System.out.println(getName()+"의 총 체력 : "+getHP()+" 총 공경력 :"+getattackDamage());
         }
         System.out.println("-------------------------------");
-
-
-
     }
+
+
+
+
 
 }

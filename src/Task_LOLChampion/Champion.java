@@ -72,4 +72,17 @@ public abstract class Champion {
     public abstract void useW(Champion target);
     public abstract void useE(Champion target);
     public abstract void useR(Champion target);
+    public void takeDamage(int damage) {
+        System.out.println("------------takeDamage------------");
+        int m = this.HP - damage;
+        if (m <= 0) {
+            System.out.println(this.name + "가 사망 하였습니다.");
+            System.out.println("-------------------------------");
+            setHP(0);
+        } else {
+            System.out.println(this.name + "의 남은 체력 :" + this.HP);
+            System.out.println("-------------------------------");
+            setHP(m);
+        }
+    }
 }
