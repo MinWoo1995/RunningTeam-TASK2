@@ -35,6 +35,12 @@ public abstract class Champion {
     public int getrandomDamage(){
         return randomDamage;
     }
+    public void setdefenseDamageUp1(int defenseDamage) {
+        this.defenseDamage += defenseDamage;
+    }
+    public int getdefenseDamageUp1(){
+        return defenseDamage;
+    }
     public int getmaxEx(){
         return maxEx;
     }

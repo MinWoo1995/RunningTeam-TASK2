@@ -1,8 +1,22 @@
 package Task_LOLChampion;
 
-public class Garen extends Champion {
+public class Garen extends Champion implements Tanker,ShortDistance {
     public Garen(String name){
         super(name,1,100,50,600,500,100);
+    }
+    @Override
+    public void defenseDamageUp() {
+        System.out.println("------------근거리 패시브------------");
+        System.out.println("방어력이 100 증가합니다.");
+        setdefenseDamageUp1(100);
+        System.out.println(getName()+"의 패시브 반영 방어력 : "+getdefenseDamageUp1());
+        System.out.println("----------------------------");
+    }
+    @Override
+    public void dash(){
+        System.out.println("------------탱커 패시브------------");
+        System.out.println("앞으로 순간이동을 실시합니다!!");
+        System.out.println("----------------------------");
     }
     @Override
     public void useQ(Champion target) {

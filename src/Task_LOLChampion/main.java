@@ -31,6 +31,11 @@ public class main {
         //attackDamage 값을 난수(랜덤)로 만들어 “치명타 개념” 추가해보기
         garen2.useE(ash2);
 
+        //인터페이스를 2개 이상 조합한 챔피언 만들기(예: 근거리 + 탱커)
+        garen2.defenseDamageUp();
+        garen2.dash();
+
+
 
 
 
