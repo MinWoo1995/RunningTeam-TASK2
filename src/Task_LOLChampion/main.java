@@ -17,7 +17,10 @@ public class main {
         ash2.useE(garen2);
         ash2.useR(garen2);
 
-        //
+        //Lux, Teemo 등 챔피언 2명 더 만들기
+        Lux lux1 = new Lux("Lux1");
+        Teemo teemo1 = new Teemo("Teemo1");
+
 
 
 

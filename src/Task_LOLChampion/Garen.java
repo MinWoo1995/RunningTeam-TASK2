@@ -5,7 +5,6 @@ public class Garen extends Champion {
         super(name,1,100,50,600,500);
     }
     @Override
-    @Override
     public void useQ(Champion target) {
         System.out.println(getName() + "이(가) 'Q' 스킬을 사용합니다.");
         attackTo(target);
