@@ -24,6 +24,7 @@ public class Garen extends Champion implements Tanker,ShortDistance {
         System.out.println(getName() + "이(가) 'Q' 스킬을 사용합니다.");
         attackTo(target);
         System.out.println("----------------------------");
+        GameConstants.battleCount++;
     }
     @Override
     public void useR(Champion target) {
@@ -38,6 +39,7 @@ public class Garen extends Champion implements Tanker,ShortDistance {
         setMP(mp);
         System.out.println(getName()+"의 남은 마력 : "+getMP());
         System.out.println("----------------------------");
+        GameConstants.battleCount++;
     }
     @Override
     public void useE(Champion target) {
@@ -48,6 +50,7 @@ public class Garen extends Champion implements Tanker,ShortDistance {
         if (probability >= 100) {
             int hp = target.getHP()-getrandomDamage();
             target.setHP(hp);
+            GameConstants.battleCount++;
             System.out.println(target.getName()+"가"+getName()+"에게 공격 당하였습니다. 현재"+target.getName()+"의 체력은"+target.getHP()+"입니다.");
         }else{
             System.out.println(getName() + "의 치명타가 발생하지 않았습니다.");
@@ -73,6 +76,7 @@ public class Garen extends Champion implements Tanker,ShortDistance {
         System.out.println(getName()+"의 남은 마력 : "+getMP());
 
         System.out.println("----------------------------");
+        GameConstants.battleCount++;
     }
     public void levelUp(int ex) {
         System.out.println("------------levelUp-------------");

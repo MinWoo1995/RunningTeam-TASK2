@@ -38,5 +38,10 @@ public class main {
         //“치명타 확률” 같은 고유 패시브를 메서드로 추가해보기
         garen1.useE(ash1);
 
+        //기본 체력, 기본 공격력, 기본 방어력 값 GameConstants의 static final 상수 사용
+        Ash ash3 = new Ash("Ash3");
+
+        //모든 챔피언의 전투 횟수(static) 카운팅 기능 추가
+        System.out.println("모든 챔피언의 총 전투 횟수 : "+GameConstants.battleCount);
     }
 }

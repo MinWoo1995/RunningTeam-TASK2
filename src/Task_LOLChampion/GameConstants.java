@@ -17,6 +17,8 @@ public class GameConstants {//여기에는 static 선언 불가.
     //static final은 외부 클래스에서 접근은 가능 하나 수정이 불가하고 참조만 가능하다.
     //static final private은 외부클래스에서 접근이 불가하고 내부 메서드나 생성자를 통해 접근이 가능하다.
 
+    static int battleCount = 0;//모든 챔피언의 전투 횟수 카운트하기 위한 독립 변수
+
     private GameConstants(){
         throw new AssertionError("이 클래스는 상수만 취급하는 클래스입니다. [클래스명.상수명]으로 호출하세요");
         //객체를 생성할려고 한다면, 오류문을 출력하여 올바르게 사용할수 있도록 안내하자!

@@ -8,6 +8,7 @@ public class Lux extends Champion {
     public void useQ(Champion target) {
         System.out.println(getName() + "이(가) 'Q' 스킬을 사용합니다.");
         attackTo(target);
+        GameConstants.battleCount++;
     }
     @Override
     public void useR(Champion target) {
@@ -20,6 +21,7 @@ public class Lux extends Champion {
         mp -= 100;
         setMP(mp);
         System.out.println(getName()+"의 남은 마력 : "+getMP());
+        GameConstants.battleCount++;
     }
     @Override
     public void useE(Champion target) {
@@ -32,6 +34,7 @@ public class Lux extends Champion {
         mp -= 10;
         setMP(mp);
         System.out.println(getName()+"의 남은 마력 : "+getMP());
+        GameConstants.battleCount++;
     }
     @Override
     public void useW(Champion target) {
@@ -44,6 +47,7 @@ public class Lux extends Champion {
         mp -= 40;
         setMP(mp);
         System.out.println(getName()+"의 남은 마력 : "+getMP());
+        GameConstants.battleCount++;
     }
 
 }
