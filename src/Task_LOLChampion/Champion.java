@@ -20,12 +20,12 @@ public abstract class Champion {
     final double CRITICAL_CHANCE = 0.5;//50% 확률
     Random random = new Random();
 
-    public Champion(String name,int level,int attackDamage,int defenseDamage,int HP,int MP,int maxEx) {
+    public Champion(String name,int level,int attackDamage,int defenseDamage,int MP,int maxEx) {
         this.name = name;
         this.levle = level;
-        this.attackDamage=attackDamage;
-        this.defenseDamage = defenseDamage;
-        this.HP = HP;
+        this.attackDamage=GameConstants.getAttackDamage();//private static final 상수이기 때문에 게터 메서드로 참조
+        this.defenseDamage = GameConstants.getDefenseDamage();//private static final 상수이기 때문에 게터 메서드로 참조
+        this.HP = GameConstants.HP;//static final으로 상수를 가져와서 초기화 진행
         this.MP = MP;
         this.maxEx = maxEx;
     }

@@ -2,7 +2,7 @@ package Task_LOLChampion;
 
 public class Ash extends Champion {
     public Ash(String name){
-        super(name,1,600,50,600,500,100);
+        super(name,1,600,50,600,500);
     }
     @Override
     public void useQ(Champion target) {

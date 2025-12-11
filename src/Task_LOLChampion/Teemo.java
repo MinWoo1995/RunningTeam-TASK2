@@ -2,7 +2,7 @@ package Task_LOLChampion;
 
 public class Teemo extends Champion{
     public Teemo(String name) {
-        super(name,2,30,10,800,400,100);
+        super(name,2,30,10,800,400);
     }
     @Override
     public void useQ(Champion target) {

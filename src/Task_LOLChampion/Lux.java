@@ -2,7 +2,7 @@ package Task_LOLChampion;
 
 public class Lux extends Champion {
     public Lux(String name) {
-        super(name,5,50,10,500,600,100);
+        super(name,5,50,10,500,600);
     }
     @Override
     public void useQ(Champion target) {
