@@ -43,5 +43,11 @@ public class main {
 
         //모든 챔피언의 전투 횟수(static) 카운팅 기능 추가
         System.out.println("모든 챔피언의 총 전투 횟수 : "+GameConstants.battleCount);
+
+        //고정된 부활(resurrect) 규칙을 final 메서드로 만들기
+        Ash ash4 = new Ash("Ash4");
+        ash4.setattackDamage(1000);//어택데미지 변수가 상수로 초기 셋팅 되어 기존 어택데미지를 높게 재설정
+        ash4.useQ(garen1);
+
     }
 }

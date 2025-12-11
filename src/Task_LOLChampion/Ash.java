@@ -6,9 +6,12 @@ public class Ash extends Champion {
     }
     @Override
     public void useQ(Champion target) {
+        System.out.println("------------useQ------------");
         System.out.println(getName() + "이(가) 'Q' 스킬을 사용합니다.");
         attackTo(target);
+        System.out.println("----------------------------");
         GameConstants.battleCount++;
+        target.checkHP();
     }
     @Override
     public void useR(Champion target) {
@@ -50,6 +53,12 @@ public class Ash extends Champion {
         System.out.println(getName()+"의 남은 마력 : "+getMP());
         System.out.println("----------------------------");
         GameConstants.battleCount++;
+    }
+    @Override
+    public void checkHP(){
+        if(getHP()<=0){
+            resurrect();
+        }
     }
 
 }

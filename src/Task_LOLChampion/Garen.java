@@ -98,9 +98,12 @@ public class Garen extends Champion implements Tanker,ShortDistance {
         }
         System.out.println("-------------------------------");
     }
-
-
-
-
+    @Override
+    public void checkHP(){
+         if(getHP()<=0){
+             System.out.println(getName()+"의 체력이 "+getHP()+" 사망하였습니다.");
+             resurrect();
+         }
+    }
 
 }

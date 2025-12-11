@@ -88,8 +88,9 @@ public abstract class Champion {
         this.attackDamage += attackDamage;
     }
     public void attackTo(Champion target){
-        this.HP-=target.getattackDamage();
-        System.out.println(target.getName()+"가"+this.name+"에게 공격 당하였습니다. 현재"+target.getName()+"의 체력은"+this.HP+"입니다.");
+        int a=target.getHP()-this.attackDamage;
+        target.setHP(a);
+        System.out.println(target.getName()+"가"+this.name+"에게 공격 당하였습니다. 현재"+target.getName()+"의 체력은"+target.HP+"입니다.");
         //출력문을 데미지 계산 위에 위치시켜서 감소된 HP 확인이 안되었다.[문제]
         this.MP-=100;
         System.out.println(this.name+"의 남은 마력 : "+this.MP);
@@ -111,4 +112,14 @@ public abstract class Champion {
             setHP(m);
         }
     }
+    //고정된 부활(resurrect) 규칙을 final 메서드로 만들기
+    final void resurrect(){
+        if(this.HP<=0){
+            this.HP=0;
+            this.HP+=(int)(GameConstants.HP * 0.2);//해당 변수들이 int 형이기 때문에 더블형이 불가하여 형변환을 해야한다.
+            System.out.println(this.name + "의 체력이 20% 회복되어 부활 되었습니다. 현재 체력 : " + this.HP);
+            System.out.println(this.name + "님 어서 우물로 돌아가 체력을 회복하세요~");
+        }
+    }
+    public abstract void checkHP();//공격자가 공격 당한 챔피언의 피를 본인 스스로 확인해보라는 메서드
 }

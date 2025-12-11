@@ -49,5 +49,11 @@ public class Lux extends Champion {
         System.out.println(getName()+"의 남은 마력 : "+getMP());
         GameConstants.battleCount++;
     }
+    @Override
+    public void checkHP(){
+        if(getHP()<=0){
+            resurrect();
+        }
+    }
 
 }
