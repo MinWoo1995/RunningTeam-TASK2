@@ -11,13 +11,16 @@ public class GameConstants {//여기에는 static 선언 불가.
     //2번 이유
     //바깥 클래스의 객체 없이도 독립적으로 동작해야 하는 유틸리티성 헬퍼 클래스를 만들 때 사용
 
-    static final int HP=500;//final 키워드 사용과 동시에 변수 값을 초기화하기 않으면 오류가 발생
+    static final int HP=100;//final 키워드 사용과 동시에 변수 값을 초기화하기 않으면 오류가 발생
     private static final int attackDamage=100;
     private static final int defenseDamage=50;//static이 붙게 되면 class 레벨의 변수가 된다!! 객체 생성없이 바로 사용가능하니까
     //static final은 외부 클래스에서 접근은 가능 하나 수정이 불가하고 참조만 가능하다.
     //static final private은 외부클래스에서 접근이 불가하고 내부 메서드나 생성자를 통해 접근이 가능하다.
 
     static int battleCount = 0;//모든 챔피언의 전투 횟수 카운트하기 위한 독립 변수
+    private static final int resurrectCount = 0;
+    private static final int maxresurrectCount = 2;
+    private static final int maxresurrectCount2 = 3;
 
     private GameConstants(){
         throw new AssertionError("이 클래스는 상수만 취급하는 클래스입니다. [클래스명.상수명]으로 호출하세요");
@@ -31,5 +34,14 @@ public class GameConstants {//여기에는 static 선언 불가.
     }
     public static int getDefenseDamage(){
         return GameConstants.defenseDamage;
+    }
+    public static int getresurrectCount(){
+        return GameConstants.resurrectCount;
+    }
+    public static int getmaxresurrectCount(){
+        return GameConstants.maxresurrectCount;
+    }
+    public static int getmaxresurrectCount2(){
+        return GameConstants.maxresurrectCount2;
     }
 }

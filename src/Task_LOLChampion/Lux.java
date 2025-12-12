@@ -5,7 +5,7 @@ public class Lux extends Champion {
         super(name,5,50,10,500,600);
     }
     @Override
-    public void useQ(Champion target) {
+    public void useQ(Champion target, otherResurrect target2) {
         System.out.println(getName() + "이(가) 'Q' 스킬을 사용합니다.");
         attackTo(target);
         GameConstants.battleCount++;

@@ -16,6 +16,10 @@ public abstract class Champion {
     private int maxmindamage=300;
     private int randomDamage;
     private int range = maxmindamage - mindamage+1;
+    private int resurrectCount = 0;
+    private int resurrectCount2 = 0;
+    private int maxresurrectCount = 0;
+    private int maxresurrectCount2 = 0;
 
     final double CRITICAL_CHANCE = 0.5;//50% 확률
     Random random = new Random();
@@ -36,6 +40,38 @@ public abstract class Champion {
         }
         return this.randomDamage;
     }
+
+
+    public void setresurrectCount(int resurrectCount){
+        this.resurrectCount = resurrectCount;
+    }
+    public int getresurrectCount(){
+        return this.resurrectCount;
+    }
+
+
+    public void setmaxresurrectCount(){
+        this.maxresurrectCount = GameConstants.getmaxresurrectCount();
+    }
+    public int getmaxresurrectCount(){
+        return this.maxresurrectCount;
+    }
+
+    public void setmaxresurrectCount2(){
+        this.maxresurrectCount2 = GameConstants.getmaxresurrectCount2();
+    }
+    public int getmaxresurrectCount2(){
+        return this.maxresurrectCount2;
+    }
+
+    public void setresurrectCount2(int resurrectCount){
+        this.resurrectCount2 = resurrectCount;
+    }
+    public int getresurrectCount2(){
+        return this.resurrectCount2;
+    }
+
+
     public int getlevel() {
         return levle;
     }
@@ -95,7 +131,7 @@ public abstract class Champion {
         this.MP-=100;
         System.out.println(this.name+"의 남은 마력 : "+this.MP);
     }
-    public abstract void useQ(Champion target);
+    public abstract void useQ(Champion target,otherResurrect target2);
     public abstract void useW(Champion target);
     public abstract void useE(Champion target);
     public abstract void useR(Champion target);
@@ -113,13 +149,19 @@ public abstract class Champion {
         }
     }
     //고정된 부활(resurrect) 규칙을 final 메서드로 만들기
-    final void resurrect(){
+    final void resurrect1(){
         if(this.HP<=0){
-            this.HP=0;
+            this.HP=0;//너무 큰 데미지를 입어 마이너스 체력까지 떨어진 상태일 경우 0으로 체력을 초기화후 20센트 체력을 주입
             this.HP+=(int)(GameConstants.HP * 0.2);//해당 변수들이 int 형이기 때문에 더블형이 불가하여 형변환을 해야한다.
             System.out.println(this.name + "의 체력이 20% 회복되어 부활 되었습니다. 현재 체력 : " + this.HP);
             System.out.println(this.name + "님 어서 우물로 돌아가 체력을 회복하세요~");
         }
     }
+    final void resurrect(){
+        if(this.HP<=0){
+            this.HP=0;
+        }
+    }
+
     public abstract void checkHP();//공격자가 공격 당한 챔피언의 피를 본인 스스로 확인해보라는 메서드
 }

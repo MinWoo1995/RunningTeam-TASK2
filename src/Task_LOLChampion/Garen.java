@@ -1,8 +1,8 @@
 package Task_LOLChampion;
 
-public class Garen extends Champion implements Tanker,ShortDistance {
+public class Garen extends Champion implements Tanker,ShortDistance,otherResurrect {
     public Garen(String name){
-        super(name,1,100,50,600,500);
+        super(name,1,1000,50,600,500);
     }
     @Override
     public void defenseDamageUp() {
@@ -19,12 +19,13 @@ public class Garen extends Champion implements Tanker,ShortDistance {
         System.out.println("----------------------------");
     }
     @Override
-    public void useQ(Champion target) {
+    public void useQ(Champion target, otherResurrect target2) {
         System.out.println("------------useQ------------");
         System.out.println(getName() + "이(가) 'Q' 스킬을 사용합니다.");
         attackTo(target);
         System.out.println("----------------------------");
         GameConstants.battleCount++;
+        target2.ohterResurrect();
     }
     @Override
     public void useR(Champion target) {
@@ -102,8 +103,24 @@ public class Garen extends Champion implements Tanker,ShortDistance {
     public void checkHP(){
          if(getHP()<=0){
              System.out.println(getName()+"의 체력이 "+getHP()+" 사망하였습니다.");
-             resurrect();
+             resurrect1();
          }
+    }
+    @Override
+    public void ohterResurrect(){
+        this.setmaxresurrectCount();
+        int b = this.getresurrectCount();
+        int c = this.getmaxresurrectCount();
+        if(b<c){
+            if(this.getHP()<=0){
+                System.out.println(this.getName()+"의 체력이 "+this.getHP()+" 사망하였습니다.");
+                resurrect1();
+                b++;
+                this.setresurrectCount(b);
+            }
+        }else{
+            System.out.println(this.getName()+"은 부활"+this.getmaxresurrectCount()+"회를 사용 하셨음으로 부활이 불가합니다.");
+        }
     }
 
 }

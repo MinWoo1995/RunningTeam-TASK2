@@ -1,17 +1,17 @@
 package Task_LOLChampion;
 
-public class Ash extends Champion {
+public class Ash extends Champion implements otherResurrect {
     public Ash(String name){
         super(name,1,600,50,600,500);
     }
     @Override
-    public void useQ(Champion target) {
+    public void useQ(Champion target, otherResurrect target2) {
         System.out.println("------------useQ------------");
         System.out.println(getName() + "이(가) 'Q' 스킬을 사용합니다.");
         attackTo(target);
         System.out.println("----------------------------");
         GameConstants.battleCount++;
-        target.checkHP();
+        target2.ohterResurrect();
     }
     @Override
     public void useR(Champion target) {
@@ -58,6 +58,22 @@ public class Ash extends Champion {
     public void checkHP(){
         if(getHP()<=0){
             resurrect();
+        }
+    }
+    @Override
+    public void ohterResurrect(){
+        this.setmaxresurrectCount2();
+        int b = this.getresurrectCount2();
+        int c = this.getmaxresurrectCount2();
+        if(b<c){
+            if(this.getHP()<=0){
+                System.out.println(this.getName()+"의 체력이 "+this.getHP()+" 사망하였습니다.");
+                resurrect1();
+                b++;
+                this.setresurrectCount2(b);
+            }
+        }else{
+            System.out.println(this.getName()+"은 부활"+this.getmaxresurrectCount2()+"회를 사용 하셨음으로 부활이 불가합니다.");
         }
     }
 

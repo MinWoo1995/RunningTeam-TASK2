@@ -12,7 +12,7 @@ public class main {
         ash1.attackTo(garen1);
 
         //Q/W/E/R 스킬을 모두 추상 메서드로 확장해보기
-        ash2.useQ(garen2);
+        ash2.useQ(garen2,garen2);
         ash2.useW(garen2);
         ash2.useE(garen2);
         ash2.useR(garen2);
@@ -47,7 +47,16 @@ public class main {
         //고정된 부활(resurrect) 규칙을 final 메서드로 만들기
         Ash ash4 = new Ash("Ash4");
         ash4.setattackDamage(1000);//어택데미지 변수가 상수로 초기 셋팅 되어 기존 어택데미지를 높게 재설정
-        ash4.useQ(garen1);
+        ash4.useQ(garen1,garen1);
 
+        //인터페이스 otherResurrect을 만들어 추상메서드를 선언하여 서로 다른 챔피언의 부활 조건을 결정
+        //가렌은 최대 2번만 부활이 가능하다.
+        //에쉬는 최대 3번만 부활이 가능하다.
+        ash4.useQ(garen1,garen1);
+        ash4.useQ(garen1,garen1);
+        garen1.useQ(ash4,ash4);
+        garen1.useQ(ash4,ash4);
+        garen1.useQ(ash4,ash4);
+        garen1.useQ(ash4,ash4);
     }
 }
