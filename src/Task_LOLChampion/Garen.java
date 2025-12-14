@@ -2,7 +2,7 @@ package Task_LOLChampion;
 
 public class Garen extends Champion implements Tanker,ShortDistance,otherResurrect {
     public Garen(String name){
-        super(name,1,1000,50,600,500);
+        super(name,1,1000,50,500);
     }
     @Override
     public void defenseDamageUp() {

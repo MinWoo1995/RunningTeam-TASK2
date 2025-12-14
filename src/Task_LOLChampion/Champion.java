@@ -3,6 +3,7 @@ package Task_LOLChampion;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
+import java.util.Scanner;
 
 public abstract class Champion {
     private String name;
@@ -28,7 +29,7 @@ public abstract class Champion {
 
 
 
-    public Champion(String name,int level,int attackDamage,int defenseDamage,int MP,int maxEx) {
+    public Champion(String name,int level,int attackDamage,int defenseDamage,int maxEx) {
         this.name = name;
         this.levle = level;
         this.attackDamage=GameConstants.getAttackDamage();//private static final 상수이기 때문에 게터 메서드로 참조
@@ -36,6 +37,21 @@ public abstract class Champion {
         this.HP = GameConstants.HP;//static final으로 상수를 가져와서 초기화 진행
         this.MP = MP;
         this.maxEx = maxEx;
+
+        while(true) {
+            //체력을 어떻게 설정할지 입력받기
+            System.out.print(this.getName() + "의 L1=300,L2=400,L3=500,L4=1200 원하는 마력값을 입력해주세요 ex)L1 : ");
+            Scanner scan = new Scanner(System.in);
+            String scan1 = scan.nextLine();
+            if (scan1.equals("L1") || scan1.equals("L2") || scan1.equals("L3") || scan1.equals("L4")) {
+                //[문제] GameConstants.championsValue(scan); 이넘클래스는 이렇게 호출불가능
+                //[해결] 리턴값을 저장할 공간 = 클래스명.메서드명.해당메서드의 세터로 셋팅후.게터로 리턴해달라
+                this.MP = GameConstants.championsValue.valueOf(scan1).getValue();
+                break;
+            } else {
+                System.out.println("입력을 잘못하셨습니다. L1,L2,L3,L4 중에서 대소문자를 구분하여 입력해주세요 : ");
+            }
+        }
     }
     public int criticalDamage(){
         double probabilityCheck = random.nextDouble();

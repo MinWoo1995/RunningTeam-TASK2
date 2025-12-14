@@ -60,6 +60,21 @@ public class GameConstants {//여기에는 static 선언 불가.
         }
     }
 
-
-
+    public enum championsValue{
+        //정의
+        L1(300),
+        L2(400),
+        L3(500),
+        L4(1200);
+        //속성
+        private final int value;
+        //생성자
+        championsValue(int value){
+            this.value = value;
+        }
+        //게터
+        public int getValue(){
+            return value;
+        }
+    }
 }

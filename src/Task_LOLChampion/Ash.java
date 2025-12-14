@@ -2,7 +2,7 @@ package Task_LOLChampion;
 
 public class Ash extends Champion implements otherResurrect {
     public Ash(String name){
-        super(name,1,600,50,600,500);
+        super(name,1,600,50,500);
     }
     @Override
     public void useQ(Champion target, otherResurrect target2) {
